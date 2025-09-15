@@ -1,22 +1,43 @@
+# 📘 JSQUARE Website 
 
-# 🗺️ JSQUARE Website Sitemap
+## 📌 Project Overview
+
+JSQUARE is a **real-time project-based training initiative** by **JSDEVBRAINS Digital Private Limited**. Unlike typical training centers, JSQUARE provides **IT culture–oriented training** where students learn **Full Stack Development (C#, Azure, Python)** along with **GitHub, Jira, Agile methodology, and design patterns**.
+
+The goal of this website is to:
+
+1. Showcase **JSQUARE’s journey and credibility** (since 2007, 5000+ students).
+2. Attract **students** to enroll in courses.
+3. Provide a **dedicated section for recruiters** to hire JSQUARE-trained talent.
+4. Build trust through **Google & Justdial reviews**.
+
+---
+
+## 🎯 Target Audience
+
+* **Students/Learners** → who want to become industry-ready full stack developers.
+* **Recruiters/Companies** → looking to hire project-ready talent trained in IT culture.
+
+---
+
+## 🗂️ Sitemap
 
 ```
 Home
- ├── Hero Section (Tagline + CTA)
- ├── Key Highlights
+ ├── Hero Section
+ ├── Highlights
  ├── Courses Overview
- ├── About Our Journey (2007 → Present)
- ├── Student Experience (IT Culture + Tools)
- ├── Reviews (Google + Justdial)
- ├── Recruiter Invitation (Why Hire JSQUARE Talent)
- └── Call to Action (Join Now / Contact Us)
+ ├── About Our Journey
+ ├── Student Experience
+ ├── Reviews
+ ├── Recruiter Invitation
+ └── CTA
 
 About Us
- ├── Our Story (Started in Coimbatore, 5000+ students)
- ├── Our Mission & Values
- ├── Top Companies (Alumni Workplaces)
- └── Our Training Model (1 Trainer + 3 Mentors per student)
+ ├── Story & Mission
+ ├── Journey Timeline (2007 → Now)
+ ├── Top Companies (where alumni work)
+ └── Training Model (1 trainer + 3 mentors per student)
 
 Courses
  ├── C# Full Stack Developer
@@ -24,20 +45,20 @@ Courses
  └── Python Full Stack Developer
 
 Student Experience
- ├── IT Culture (GitHub, Jira, Agile, Design Patterns)
+ ├── IT Culture: GitHub, Jira, Agile, Design Patterns
  ├── Beginner → Solution Designer Path
- ├── Code Submission + Review Process
- └── Discipline & Professional Growth
+ ├── Code Review Workflow
+ └── Professional Discipline
 
 How It Works
- ├── Step-by-step diagram (Learn → Task → GitHub → Jira → Review → Approve)
- └── Call to Action (Join & Verify)
+ ├── Step-by-step flow: Learn → Task → GitHub → Jira → Review → Approve
+ └── CTA
 
 Recruiters
  ├── Why Hire JSQUARE Students
- ├── Skills & Tools (C#, Azure, Python, GitHub, Jira, Agile, DB design)
+ ├── Skills & IT Culture Tools
  ├── Alumni Success Stories
- └── Recruiter Contact Form (Request Student Profiles)
+ └── Recruiter Contact Form
 
 Reviews
  ├── Google Reviews Integration
@@ -45,78 +66,73 @@ Reviews
  └── Student Testimonials
 
 Contact Us
- ├── Contact Form (Student/Recruiter)
- ├── Office Address
- ├── Phone & Email
+ ├── Contact Form
+ ├── Address, Phone, Email
  └── Google Map Integration
 ```
 
 ---
 
-# 🎨 Wireframe Layout Suggestion
+## 🔑 Key Features
 
-### **1. Home Page**
+### 🌍 Branding & Identity
 
-```
------------------------------------------------------
-[Header: Logo | Menu | Enroll Button]
------------------------------------------------------
-[Hero Section: Banner with tagline + Join Now CTA]
+* Corporate look (like consulting companies)
+* Logo & colors aligned with **JSDEVBRAINS** branding
 
-[Key Highlights: 4 icons (Real Projects | 5000+ Students | 1 Trainer + 3 Mentors | IT Culture)]
+### 📖 Content Sections
 
-[Courses Preview: 3 Cards (C#, Azure, Python)]
+* **Journey** → Started in 2007, trained 5000+ students, alumni in top companies
+* **Student Section** → IT culture, GitHub, Jira, Agile, Design Patterns, Solution Design
+* **Recruiter Section** → Why hire JSQUARE talent, alumni success, contact option
 
-[About Our Journey: Timeline style (2007 → Now, 5000+ students, Top Companies logos)]
+### 🛠️ Functional Features
 
-[Student Experience: 4 Columns (GitHub | Jira | Agile | DB & Solution Design)]
+* Course registration form (store in DB + email notifications)
+* Google & Justdial review integrations
+* Recruiter contact form
+* Responsive design (mobile + desktop)
+* SEO optimized
 
-[Reviews Section: Google + Justdial Widgets + Quotes]
+---
 
-[Recruiter Section: Why Hire JSQUARE Talent + Handshake CTA]
+## 🖥️ Technical Requirements
 
-[Final CTA: “Start Training Today” Button]
+* Framework: Developer can use HTML
+* Database: NO Database
+* Hosting: Azure 
+* SSL certificate: Mandatory.
 
-[Footer: Company Info | Links | Social Icons]
------------------------------------------------------
-```
+---
 
-### **2. About Page**
+## 🎨 Design Guidelines
 
-* Banner: “Our Journey”
-* Story (text + images)
-* Timeline (2007 → Now)
-* Top Companies logos grid
-* “Our Model” infographic (1 trainer + 3 mentors per student)
+* **Style**: Professional, clean, corporate (not like coaching centers).
+* **Inspiration**: Infosys, Accenture (corporate look) + Simplilearn/Udemy (course structure).
+* **Colors**:
 
-### **3. Courses Page**
+  * Primary: Blue (#0056D2 or similar corporate blue)
+  * Secondary: White / Light Grey
+  * Accent: Orange or Green (for CTA buttons)
+* **Fonts**: Sans-serif modern (Roboto, Open Sans, or Lato).
 
-* Each course as a card with **title, duration, technologies, outcome, enroll button**.
+---
 
-### **4. Student Experience Page**
+## 📑 Content Highlights (for developer to use)
 
-* Split layout:
+* Hero Tagline: *“Real-Time Full Stack Training with Project Experience”*
+* Journey: *“Founded in 2007 in Coimbatore, trained 5000+ students, alumni in Microsoft, Amazon, TCS, Wipro, Infosys, Accenture, Cognizant, HCL, Capgemini, Tech Mahindra.”*
+* Student Experience: *“Students learn IT culture with GitHub code push, Jira task management, Agile methodology, design patterns, and solution design.”*
+* Recruiter Pitch: *“Hire industry-ready developers with real-time project experience, IT culture, and disciplined work habits.”*
 
-  * Left: Image of team using laptops / office-style.
-  * Right: Points → GitHub, Jira, Agile, Design Patterns.
-* Infographic: Beginner → Database & Solution Design.
+---
 
-### **5. Recruiters Page**
+## ✅ Deliverables for Developer
 
-* Banner: “Hire Industry-Ready Developers”
-* Why Hire → Icons (Skilled, Reviewed, Disciplined, IT-ready)
-* Top Companies logos (trust factor)
-* Contact form (Recruiters only)
-
-### **6. Reviews Page**
-
-* Google Reviews embed
-* Justdial Reviews embed
-* Student video/quote testimonials
-
-### **7. Contact Us Page**
-
-* Simple contact form (Student/Recruiter toggle)
-* Address + phone + email
-* Map
+1. **Responsive Website** as per sitemap & wireframe.
+2. **Pages & Content** integrated from provided text.
+3. **Course Registration Form** (with DB + email).
+4. **Google & Justdial Reviews** embedded.
+5. **Recruiter Contact Form**.
+6. SEO, SSL, Mobile optimization.
 
