@@ -1,397 +1,484 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JSQUARE | Hands‑On .NET & Azure Training Since 2007 — JSDEVBRAINS Digital Pvt Ltd</title>
-  <meta name="description" content="JSQUARE by JSDEVBRAINS Digital Private Limited — Real-time, hands-on .NET full stack and Azure internship training since 2007. 3-month industry simulation, 100+ alumni placed in TCS, CTS, Microsoft, Google and more." />
-  <meta name="theme-color" content="#0A3D91" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JSQUARE — Real-Time Full Stack Training</title>
+  <meta name="description" content="JSQUARE (part of JSDEVBRAINS) — real-time project-based Full Stack training in C#, Azure, Python. Since 2007, 5000+ students trained. GitHub, Jira, Agile, Design Patterns." />
   <style>
     :root{
-      --primary:#0A66C2; /* Microsoft-ish blue */
-      --primary-dark:#084C92;
-      --accent:#111827; /* slate-900 */
-      --bg:#0B1220; /* deep navy */
-      --muted:#6B7280; /* gray-500 */
-      --card:#0F172A; /* slate-900/blue mix */
-      --ring:#60A5FA;
-      --success:#10B981;
-      --warning:#F59E0B;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(2,6,23,.35);
+      --primary:#0056D2;
+      --accent:#ff7a00;
+      --muted:#6b7280;
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --maxw:1100px;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0B1220 0%,#0A1530 100%);color:#E5E7EB}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    /* Layout */
-    .container{width:100%;max-width:1180px;margin-inline:auto;padding:0 20px}
-
-    /* Top Bar */
-    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:linear-gradient(180deg,rgba(8,12,28,.85),rgba(8,12,28,.55));border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#38BDF8);display:grid;place-items:center;box-shadow:0 6px 18px rgba(14,165,233,.35)}
-    .logo span{font-family:Poppins,Inter,system-ui,sans-serif;font-weight:800}
-    .menu{display:flex;gap:18px;align-items:center}
-    .menu a{padding:8px 12px;border-radius:10px;color:#D1D5DB}
-    .menu a:hover{background:rgba(255,255,255,.06);color:#fff}
-    .cta{padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#2563EB);color:#fff;font-weight:600;box-shadow:0 10px 20px rgba(37,99,235,.25)}
-    .cta:hover{transform:translateY(-1px)}
-    .mobile-toggle{display:none;border:1px solid rgba(255,255,255,.15);background:transparent;color:#fff;padding:8px 10px;border-radius:10px}
-
+    body{margin:0;background:var(--bg);color:#0f172a;line-height:1.5}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header{background:linear-gradient(90deg,var(--card),#fff);position:sticky;top:0;z-index:40;border-bottom:1px solid #e6edf6}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;gap:10px;align-items:center}
+    .logo .symbol{width:44px;height:44px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+    nav a{color:#0f172a;text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
     /* Hero */
-    .hero{position:relative;overflow:hidden}
-    .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:60px 0}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.35);color:#BFDBFE;font-weight:600}
-    h1{font-family:Poppins,Inter,sans-serif;font-size:46px;line-height:1.1;margin:18px 0 10px}
-    .lead{font-size:18px;color:#C7D2FE;opacity:.95}
-    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
-    .kpi{background:linear-gradient(180deg,rgba(30,64,175,.35),rgba(2,6,23,.35));border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:16px 18px}
-    .kpi strong{font-size:22px;display:block}
-    .hero-card{background:linear-gradient(180deg,rgba(30,41,59,.75),rgba(2,6,23,.75));border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);padding:20px;border-radius:16px}
-
-    /* Sections */
-    section{padding:70px 0}
-    .section-title{font-family:Poppins,Inter,sans-serif;font-size:32px;margin:0 0 14px}
-    .section-sub{color:#A1A1AA;margin-bottom:28px}
-
-    /* Why */
-    .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .card{background:linear-gradient(180deg,rgba(2,6,23,.6),rgba(15,23,42,.6));border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:18px}
-    .card h3{margin:10px 0 8px;font-size:18px}
-    .icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.35)}
-
-    /* Programs */
-    .programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .program{position:relative;overflow:hidden}
-    .program .meta{font-size:14px;color:#93C5FD}
-    .tag{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid rgba(16,185,129,.35);color:#A7F3D0;background:rgba(16,185,129,.1);font-size:12px}
-
-    /* Approach timeline */
-    .timeline{border-left:2px dashed rgba(96,165,250,.35);margin-left:10px;padding-left:18px;display:grid;gap:14px}
-    .step{position:relative}
-    .step:before{content:"";position:absolute;left:-21px;top:4px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#60A5FA,#2563EB);box-shadow:0 0 0 3px rgba(96,165,250,.25)}
-
-    /* Alumni */
-    .logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;opacity:.9}
-    .logo-card{background:rgba(255,255,255,.04);border-radius:14px;border:1px solid rgba(255,255,255,.08);padding:14px;display:grid;place-items:center}
-    .testimonials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
-    .quote{font-style:italic;color:#D1D5DB}
-
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;padding:38px 0;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .hero h1{font-size:28px;margin:0;color:var(--primary)}
+    .hero p{margin:0;color:var(--muted)}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 4px 14px rgba(2,6,23,0.06)}
+    .grid-3{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
+    .highlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    /* Courses */
+    .courses{display:grid;gap:14px}
+    .course-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .course-card{padding:18px;border-radius:10px;border:1px solid #eef2ff;background:linear-gradient(180deg,#fff,#fbfdff)}
+    .course-card h3{margin:0 0 8px 0;color:var(--primary)}
+    .small{font-size:13px;color:var(--muted)}
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline .row{display:flex;gap:12px;align-items:center}
+    .timeline .dot{width:10px;height:10px;border-radius:50%;background:var(--primary)}
+    .companies{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .company{background:#fff;padding:8px 12px;border-radius:8px;border:1px solid #e6eefc;font-weight:600;font-size:13px}
+    /* Student experience */
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .feature{padding:14px;border-radius:10px;background:#fff;border:1px solid #eef4ff;text-align:center}
+    .how{display:flex;gap:18px;align-items:flex-start}
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{background:#fff;padding:12px;border-radius:10px;border:1px solid #eef3ff}
+    /* Recruiter */
+    .recruiter{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .badge{display:inline-block;background:linear-gradient(90deg,#ecf2ff,#fff);padding:8px 12px;border-radius:999px;border:1px solid #dbeafe;font-weight:700}
+    /* Reviews */
+    .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     /* Contact */
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-    .form{display:grid;gap:12px}
-    .input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.24);background:rgba(2,6,23,.5);color:#fff;outline:0}
-    .input:focus, textarea:focus{border-color:var(--ring);box-shadow:0 0 0 4px rgba(96,165,250,.25)}
-    .btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(135deg,var(--primary),#2563EB);color:#fff;font-weight:700}
-    .info-card{display:grid;gap:8px}
-
-    /* Footer */
-    footer{padding:26px 0;border-top:1px solid rgba(255,255,255,.08);color:#94A3B8}
-
-    /* Utilities */
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .muted{color:#9CA3AF}
-
-    /* Responsive */
-    @media (max-width:1024px){
-      .hero .grid, .contact-grid{grid-template-columns:1fr}
-      .programs{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .logos{grid-template-columns:repeat(4,minmax(0,1fr))}
-      .testimonials{grid-template-columns:repeat(2,minmax(0,1fr))}
+    form{display:grid;gap:12px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6eefc;font-size:14px}
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+    /* responsive */
+    @media(min-width:760px){
+      .hero{grid-template-columns:1fr 420px}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+      .grid-4{grid-template-columns:repeat(4,1fr)}
     }
-    @media (max-width:720px){
-      .menu{display:none}
-      .mobile-toggle{display:inline-block}
-      h1{font-size:34px}
-      .kpis{grid-template-columns:1fr 1fr}
-      .why-grid{grid-template-columns:1fr}
-      .programs{grid-template-columns:1fr}
-      .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .testimonials{grid-template-columns:1fr}
+    @media(max-width:760px){
+      nav ul{display:none}
+      .hero h1{font-size:22px}
+      .course-cards{grid-template-columns:1fr}
+      .companies{gap:8px}
+      .reviews-grid{grid-template-columns:1fr}
+      .recruiter{flex-direction:column;align-items:flex-start}
     }
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;border:1px solid #e6eefc;font-weight:700}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "JSQUARE — JSDEVBRAINS Digital Private Limited",
-    "url": "https://example.com",
-    "logo": "https://example.com/logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/jsdevbrains"
-    ],
-    "foundingDate": "2007",
-    "description": "Hands-on .NET full stack and Azure internship training with real-time projects.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "MY"
-    }
-  }
-  </script>
 </head>
 <body>
-  <!-- NAV -->
-  <div class="topbar">
+  <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo"><span>J²</span></div>
+      <div class="logo">
+        <div class="symbol">JS</div>
         <div>
-          <div style="font-family:Poppins;font-weight:800;line-height:1">JSQUARE</div>
-          <div style="font-size:12px;color:#9CA3AF">By JSDEVBRAINS Digital Pvt Ltd</div>
+          <div style="font-weight:800">JSQUARE</div>
+          <div style="font-size:12px;color:var(--muted)">Part of JSDEVBRAINS Digital Pvt Ltd</div>
         </div>
       </div>
-      <nav class="menu" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#approach">Approach</a>
-        <a href="#alumni">Alumni</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#apply">Apply Now</a>
+
+      <nav>
+        <ul>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#students">Students</a></li>
+          <li><a href="#recruiters">Recruiters</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-      <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-drawer').classList.toggle('open')">☰</button>
-    </div>
-    <div class="mobile-drawer" style="display:none"></div>
-  </div>
 
-  <!-- MOBILE MENU (injected) -->
-  <script>
-   const drawer = document.querySelector('.mobile-drawer');
-   drawer.innerHTML = `
-     <div style="border-top:1px solid rgba(255,255,255,.08);background:rgba(8,12,28,.95);">
-       <div class="container" style="display:grid;gap:6px;padding:12px 0;">
-         <a href="#about" onclick="drawer.classList.remove('open')">About</a>
-         <a href="#programs" onclick="drawer.classList.remove('open')">Programs</a>
-         <a href="#approach" onclick="drawer.classList.remove('open')">Approach</a>
-         <a href="#alumni" onclick="drawer.classList.remove('open')">Alumni</a>
-         <a href="#contact" onclick="drawer.classList.remove('open')">Contact</a>
-         <a class="cta" style="display:inline-block;text-align:center" href="#apply" onclick="drawer.classList.remove('open')">Apply Now</a>
-       </div>
-     </div>`;
-   const style = document.createElement('style');
-   style.textContent = `.mobile-drawer{transition:max-height .35s ease;overflow:hidden}.mobile-drawer.open{display:block;max-height:320px}.mobile-drawer:not(.open){max-height:0}`;
-   document.head.appendChild(style);
-  </script>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container grid">
-      <div>
-        <span class="badge">Since 2007 • Hands‑On • Industry Simulation</span>
-        <h1>Transform your career with real‑time <span style="color:#93C5FD">.NET Full‑Stack</span> & <span style="color:#93C5FD">Azure</span> training</h1>
-        <p class="lead">We train freshers and students exactly how software companies train their teams. 3‑month internship, 100% hands‑on, projects, code reviews, Agile, DevOps — skills equivalent to 4 years of experience.</p>
-        <div class="kpis">
-          <div class="kpi"><strong>17+ Years</strong><span class="muted">Mentoring Excellence</span></div>
-          <div class="kpi"><strong>100+ Placements</strong><span class="muted">TCS • CTS • Microsoft • Google</span></div>
-          <div class="kpi"><strong>3‑Month</strong><span class="muted">Intensive Internship</span></div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3 style="margin:0 0 8px">Next Batch — Admissions Open</h3>
-        <div class="grid-2">
-          <div>
-            <div class="muted">Tracks</div>
-            <div>.NET API, C#, EF Core</div>
-            <div>React/Angular Frontend</div>
-            <div>Azure • CI/CD • DevOps</div>
-          </div>
-          <div>
-            <div class="muted">Outcomes</div>
-            <div>2+ Real Projects</div>
-            <div>Git • Agile • Reviews</div>
-            <div>Interview Prep</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:14px">
-          <a class="btn" href="#apply">Apply Now</a>
-          <a class="btn" style="background:linear-gradient(135deg,#111827,#1F2937);border:1px solid rgba(255,255,255,.1)" href="#brochure">Download Brochure</a>
-        </div>
-      </div>
+      <a class="cta" href="#contact">Enroll / Hire</a>
     </div>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About JSQUARE</h2>
-      <p class="section-sub">An initiative by <strong>JSDEVBRAINS Digital Private Limited</strong> to bridge the gap between academics and real IT work.</p>
-      <div class="why-grid">
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
         <div class="card">
-          <div class="icon">🏢</div>
-          <h3>Train like you work</h3>
-          <p>Our internship mirrors a real software company: daily stand‑ups, sprint boards, code reviews, and deployment checklists.</p>
+          <h1>Real-Time Full Stack Training with Project Experience</h1>
+          <p class="muted">
+            Since 2007, JSQUARE (part of JSDEVBRAINS) trains developers with practical, daily project work — learn today, build tomorrow, get reviewed the next day.
+          </p>
+          <div class="actions">
+            <a class="cta" href="#contact">Start Training Today</a>
+            <a style="padding:10px 14px;border-radius:10px;border:1px solid #e6eefc;text-decoration:none;font-weight:700" href="#courses">View Courses</a>
+          </div>
         </div>
-        <div class="card">
-          <div class="icon">🧑‍🏫</div>
-          <h3>One mentor. One vision.</h3>
-          <p>Led by a single expert trainer with 17+ years teaching. Personalized guidance that creates consistent results.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🧩</div>
-          <h3>Hands‑on first</h3>
-          <p>Zero boring theory. You’ll build APIs, UIs, databases, and ship to Azure — end‑to‑end.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PROGRAMS -->
-  <section id="programs">
-    <div class="container">
-      <h2 class="section-title">Programs</h2>
-      <p class="section-sub">3‑month intensive internship with real projects. Choose your focus or do the full stack.</p>
-      <div class="programs">
-        <article class="card program">
-          <span class="tag">Core Track</span>
-          <h3>.NET Full‑Stack Development</h3>
-          <div class="meta">C#, ASP.NET Core, Web API, EF Core, SQL Server</div>
-          <ul>
-            <li>RESTful APIs with clean architecture</li>
-            <li>Authentication & Authorization (JWT)</li>
-            <li>Entity Framework Core & performance</li>
-            <li>Unit & integration testing</li>
-          </ul>
-        </article>
-        <article class="card program">
-          <span class="tag">Cloud Track</span>
-          <h3>Microsoft Azure & DevOps</h3>
-          <div class="meta">App Service, Functions, Storage, Cosmos DB, Azure AD</div>
-          <ul>
-            <li>CI/CD pipelines with GitHub Actions/Azure DevOps</li>
-            <li>Monitoring, logging, and alerts</li>
-            <li>Security & cost optimization</li>
-          </ul>
-        </article>
-        <article class="card program">
-          <span class="tag">Frontend Track</span>
-          <h3>Modern Web UI</h3>
-          <div class="meta">React or Angular, TypeScript, Tailwind or CSS Modules</div>
-          <ul>
-            <li>Component patterns & state management</li>
-            <li>Forms, validation, routing</li>
-            <li>Testing & accessibility (a11y)</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div>
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="pill">2007 • Coimbatore</div>
+                <div style="font-weight:700;margin-top:8px">5000+ students trained</div>
+                <div class="small muted">Alumni placed in top global companies</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-size:22px;font-weight:800;color:var(--primary)">1 Trainer</div>
+                <div class="small muted">+ 3 mentors per student</div>
+              </div>
+            </div>
+            <hr style="margin:12px 0;border:none;border-top:1px solid #eef6ff"/>
+            <div class="highlight-grid">
+              <div style="padding:8px">
+                <strong>Real Projects</strong>
+                <div class="small muted">Daily lessons → next-day task → submission</div>
+              </div>
+              <div style="padding:8px">
+                <strong>IT Culture</strong>
+                <div class="small muted">GitHub, Jira, Agile, Design patterns</div>
+              </div>
+              <div style="padding:8px">
+                <strong>Mentor Reviews</strong>
+                <div class="small muted">Code reviewed and approved by mentors</div>
+              </div>
+              <div style="padding:8px">
+                <strong>Recruiter-ready</strong>
+                <div class="small muted">Students are hire-ready with portfolios</div>
+              </div>
+            </div>
+          </div>
 
-  <!-- APPROACH -->
-  <section id="approach">
-    <div class="container">
-      <h2 class="section-title">Our Training Approach</h2>
-      <p class="section-sub">Proven system that turns beginners into job‑ready developers.</p>
-      <div class="timeline">
-        <div class="step">
-          <h3>Week 1–2: Foundations by Building</h3>
-          <p>Git, Agile, C# refresh, API scaffolding, DB modeling. Push code from day one.</p>
-        </div>
-        <div class="step">
-          <h3>Week 3–6: Feature Sprints</h3>
-          <p>Authentication, CRUD modules, UI integration, reviews, refactoring, unit tests.</p>
-        </div>
-        <div class="step">
-          <h3>Week 7–10: Cloud & Scale</h3>
-          <p>Deploy to Azure, add monitoring, CI/CD pipelines, security basics.</p>
-        </div>
-        <div class="step">
-          <h3>Week 11–12: Final Project & Placement Prep</h3>
-          <p>Capstone project, mock interviews, resume & LinkedIn polishing, referrals via alumni.</p>
+          <div style="margin-top:12px" class="card">
+            <strong>Quick Contact</strong>
+            <div class="small muted">Have recruiters? Want to enroll? Reach us.</div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="cta" href="#contact">Contact Us</a>
+              <a style="padding:10px 14px;border-radius:10px;border:1px solid #e6eefc;text-decoration:none;font-weight:700" href="mailto:contact@jsquare.com">Email: contact@jsquare.com</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ALUMNI -->
-  <section id="alumni">
-    <div class="container">
-      <h2 class="section-title">Alumni & Placements</h2>
-      <p class="section-sub">Our students work in top companies and abroad.</p>
-      <div class="logos">
-        <div class="logo-card">TCS</div>
-        <div class="logo-card">CTS</div>
-        <div class="logo-card">Wipro</div>
-        <div class="logo-card">Microsoft</div>
-        <div class="logo-card">Google</div>
-        <div class="logo-card">Capgemini</div>
+    <!-- COURSES -->
+    <section id="courses" style="margin-top:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Courses We Offer</h2>
+        <div class="small muted">Project-based · Mentor reviewed · Recruiter-ready</div>
       </div>
-      <div class="testimonials">
-        <div class="card">
-          <p class="quote">“JSQUARE felt like my first job, not a class. I shipped two projects to Azure before graduating.”</p>
-          <div class="muted">— Priya S., Software Engineer @ Microsoft</div>
-        </div>
-        <div class="card">
-          <p class="quote">“The hands‑on training and code reviews made interviews easy. Got placed at TCS within a month.”</p>
-          <div class="muted">— Karthik R., Developer @ TCS</div>
-        </div>
-        <div class="card">
-          <p class="quote">“I learned end‑to‑end development and DevOps. Today I lead a team in Europe.”</p>
-          <div class="muted">— Ananya M., Tech Lead (Alumni Abroad)</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- APPLY / CONTACT -->
-  <section id="contact">
-    <div class="container contact-grid">
+      <div class="course-cards" style="margin-top:12px">
+        <div class="course-card">
+          <h3>C# Full Stack Developer</h3>
+          <div class="small muted">Duration: 12 weeks</div>
+          <p class="small" style="margin-top:8px">.NET Core, Entity Framework, SQL Server, React/Angular, REST APIs. One-day training → next-day task → code review & approval. Build enterprise-grade apps.</p>
+          <div style="margin-top:12px"><a class="cta" href="#contact">Enroll</a></div>
+        </div>
+
+        <div class="course-card">
+          <h3>Azure Full Stack Developer</h3>
+          <div class="small muted">Duration: 12 weeks</div>
+          <p class="small" style="margin-top:8px">Azure Functions, Azure SQL, Cosmos DB, .NET Core, React. Cloud-native projects with real deployment & monitoring practices.</p>
+          <div style="margin-top:12px"><a class="cta" href="#contact">Enroll</a></div>
+        </div>
+
+        <div class="course-card">
+          <h3>Python Full Stack Developer</h3>
+          <div class="small muted">Duration: 12 weeks</div>
+          <p class="small" style="margin-top:8px">Python, Django/Flask, PostgreSQL, REST APIs, frontend integration. Build scalable Python-based web solutions from scratch.</p>
+          <div style="margin-top:12px"><a class="cta" href="#contact">Enroll</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" style="margin-top:28px">
+      <h2>Our Journey</h2>
+      <div class="timeline card" style="margin-top:12px">
+        <div class="row">
+          <div class="dot"></div>
+          <div>
+            <strong>2007 — Founded in Coimbatore</strong>
+            <div class="small muted">Started with 6 students. Vision: close the gap between learning and the industry.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="dot"></div>
+          <div>
+            <strong>5000+ Students Trained</strong>
+            <div class="small muted">Over the years, more than 5000 learners gained project experience and placement support.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="dot"></div>
+          <div>
+            <strong>Alumni in Top Companies</strong>
+            <div class="small muted">Our alumni work at:</div>
+            <div class="companies" style="margin-top:8px">
+              <div class="company">Microsoft</div>
+              <div class="company">Amazon</div>
+              <div class="company">Accenture</div>
+              <div class="company">TCS</div>
+              <div class="company">Wipro</div>
+              <div class="company">Infosys</div>
+              <div class="company">Cognizant</div>
+              <div class="company">HCL</div>
+              <div class="company">Capgemini</div>
+              <div class="company">Tech Mahindra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT EXPERIENCE -->
+    <section id="students" style="margin-top:28px">
+      <h2>Student Experience — Beyond Coding</h2>
+      <p class="muted">At JSQUARE, students learn technical skills AND the professional workflows required by IT companies.</p>
+
+      <div style="margin-top:12px" class="card">
+        <div class="grid-4">
+          <div class="feature">
+            <strong>GitHub</strong>
+            <div class="small muted">Code push, branches, PRs & version control</div>
+          </div>
+          <div class="feature">
+            <strong>Jira</strong>
+            <div class="small muted">Task management, tickets, sprint boards</div>
+          </div>
+          <div class="feature">
+            <strong>Agile & Standups</strong>
+            <div class="small muted">Daily workflows, sprint planning, retrospectives</div>
+          </div>
+          <div class="feature">
+            <strong>Design Patterns</strong>
+            <div class="small muted">SOLID, Factory, Repository, MVC & architecture principles</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="how">
+          <div style="flex:1">
+            <h4>Beginner → Solution Designer</h4>
+            <p class="small muted">Our path teaches students to design databases, APIs, and end-to-end solutions independently. They graduate not just as coders but as IT professionals.</p>
+            <ul class="small muted">
+              <li>Database design & normalization</li>
+              <li>API design & documentation</li>
+              <li>Clean code & testable architecture</li>
+            </ul>
+          </div>
+
+          <div style="width:320px">
+            <h4>Training Model</h4>
+            <div class="step small">
+              <strong>1 Trainer + 3 Mentors</strong>
+              <div class="small muted">Personalized guidance and fast feedback</div>
+            </div>
+            <div class="step small" style="margin-top:8px">
+              <strong>Daily learning → Next-day task</strong>
+              <div class="small muted">Practice the concept immediately</div>
+            </div>
+            <div class="step small" style="margin-top:8px">
+              <strong>Code submission → Mentor review</strong>
+              <div class="small muted">Approved tasks become portfolio items</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" style="margin-top:28px">
+      <h2>How It Works</h2>
+      <p class="muted">Learn. Implement. Submit. Review. Approve. Repeat — just like a real software team.</p>
+
+      <div class="card" style="margin-top:12px">
+        <div class="steps">
+          <div class="step">
+            <strong>Step 1 — Live/Recorded Lesson</strong>
+            <div class="small muted">Industry expert teaches the concept.</div>
+          </div>
+          <div class="step">
+            <strong>Step 2 — Practical Task</strong>
+            <div class="small muted">Next day, the student completes a real task.</div>
+          </div>
+          <div class="step">
+            <strong>Step 3 — Push Code to GitHub</strong>
+            <div class="small muted">Students submit PRs and maintain version control.</div>
+          </div>
+          <div class="step">
+            <strong>Step 4 — Track Task in Jira</strong>
+            <div class="small muted">Tasks are tracked and progressed like an agile team.</div>
+          </div>
+          <div class="step">
+            <strong>Step 5 — Mentor Code Review</strong>
+            <div class="small muted">Mentors provide detailed feedback and approval.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECRUITERS -->
+    <section id="recruiters" style="margin-top:28px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Recruiters — Hire JSQUARE Talent</h2>
+        <div class="badge">Top Talent Ready</div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="recruiter">
+          <div style="flex:1">
+            <p class="muted">
+              Our graduates are trained to join your teams from day one. They know industry workflows (GitHub, Jira), follow Agile practices, apply design patterns, and can design systems and databases independently.
+            </p>
+
+            <ul style="margin-top:12px" class="small muted">
+              <li><strong>Ready with portfolio:</strong> Every approved task becomes a portfolio item.</li>
+              <li><strong>Practical experience:</strong> Real project assignments & code reviews.</li>
+              <li><strong>Lower onboarding cost:</strong> Students are already accustomed to company workflows.</li>
+            </ul>
+
+            <p style="margin-top:12px"><strong>Interested?</strong> Contact us to request student profiles or to schedule on-site/company-specific assessments.</p>
+            <a class="cta" href="#contact">Request Talent</a>
+          </div>
+
+          <div style="width:300px;text-align:center">
+            <div style="font-weight:800;font-size:26px;color:var(--primary)">Why hire?</div>
+            <div class="small muted" style="margin-top:6px">Verified skills · Mentor-reviewed · Job-ready mindset</div>
+            <div style="margin-top:12px">
+              <!-- handshake visual placeholder -->
+              <svg width="140" height="80" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="140" height="80" rx="12" fill="#f8fbff"/>
+                <path d="M20 45c20-18 40-18 60 0" stroke="#cfe7ff" stroke-width="6" stroke-linecap="round"/>
+                <path d="M70 45c20-18 40-18 60 0" stroke="#cfe7ff" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" style="margin-top:28px">
+      <h2>Reviews & Testimonials</h2>
+      <p class="muted">We surface authentic feedback from Google and Justdial. Below are embedded widgets (placeholders) — developer should replace with live embed code later.</p>
+
+      <div class="reviews-grid" style="margin-top:12px">
+        <div class="card">
+          <strong>Google Reviews (placeholder)</strong>
+          <div class="small muted" style="margin-top:8px">[Replace this box with Google Reviews widget embed]</div>
+          <div style="margin-top:12px;font-style:italic">“Best place to get real-time project experience. The code review process is amazing.” — Student</div>
+        </div>
+
+        <div class="card">
+          <strong>Justdial Reviews (placeholder)</strong>
+          <div class="small muted" style="margin-top:8px">[Replace this box with Justdial Reviews widget embed]</div>
+          <div style="margin-top:12px;font-style:italic">“Unlike normal coaching, here you actually feel like working in a company.” — Student</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:28px">
+      <h2>Contact Us</h2>
+      <p class="muted">Students and recruiters — reach out to enroll or request talent profiles.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:12px;margin-top:12px">
+        <div class="card">
+          <form id="contactForm" onsubmit="return submitForm(event)">
+            <label><strong>Name</strong></label>
+            <input id="name" required placeholder="Your full name" />
+
+            <label><strong>Email</strong></label>
+            <input id="email" type="email" required placeholder="you@domain.com" />
+
+            <label><strong>Phone</strong></label>
+            <input id="phone" placeholder="+91-XXXXXXXXXX" />
+
+            <label><strong>I am a</strong></label>
+            <select id="role">
+              <option>Student / Learner</option>
+              <option>Recruiter / Company</option>
+              <option>Other</option>
+            </select>
+
+            <label><strong>Interested Course / Message</strong></label>
+            <textarea id="message" rows="4" placeholder="Tell us what you're looking for..."></textarea>
+
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <button type="submit" class="cta">Submit</button>
+              <button type="button" onclick="resetForm()" style="padding:10px 14px;border-radius:10px;border:1px solid #eef2ff;background:#fff;font-weight:700">Reset</button>
+            </div>
+
+            <div id="formResult" style="margin-top:10px;color:green;display:none">Thanks! We will contact you soon.</div>
+            <div class="small muted" style="margin-top:8px">Note: This is a front-end demo. Developer should connect to backend / email service for production.</div>
+          </form>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:12px">
+            <strong>Office</strong>
+            <div class="small muted" style="margin-top:8px">JSDEVBRAINS Digital Private Limited (JSQUARE)</div>
+            <div class="small muted" style="margin-top:6px">Address: [Your Office Address]</div>
+            <div class="small muted" style="margin-top:6px">Phone: +91-XXXXXXXXXX</div>
+            <div class="small muted" style="margin-top:6px">Email: contact@jsquare.com</div>
+          </div>
+
+          <div class="card">
+            <strong>Recruiters</strong>
+            <div class="small muted" style="margin-top:8px">Want to hire our top talent? Send your requirements and we'll share vetted student profiles and portfolios.</div>
+            <div style="margin-top:12px">
+              <a class="cta" href="mailto:contact@jsquare.com?subject=Hire%20JSQUARE%20Talent">Email Recruitment Team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid #eef6ff;margin-top:28px">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
       <div>
-        <h2 class="section-title" id="apply">Apply / Contact</h2>
-        <p class="section-sub">Tell us about you. We’ll share the next batch dates and a brief screening task.</p>
-        <form class="form" onsubmit="event.preventDefault(); handleSubmit(this)">
-          <input class="input" type="text" name="name" placeholder="Full Name" required aria-label="Full Name" />
-          <input class="input" type="email" name="email" placeholder="Email" required aria-label="Email" />
-          <input class="input" type="tel" name="phone" placeholder="Phone" aria-label="Phone" />
-          <select class="input" name="track" aria-label="Preferred Track">
-            <option value="FullStack">Full‑Stack .NET</option>
-            <option value="Azure">Azure & DevOps</option>
-            <option value="Frontend">Frontend (React/Angular)</option>
-          </select>
-          <textarea rows="4" name="message" class="input" placeholder="Your goals / background"></textarea>
-          <button class="btn" type="submit">Submit Application</button>
-          <div id="form-status" class="muted" role="status"></div>
-        </form>
+        <div style="font-weight:800">JSQUARE</div>
+        <div class="small muted">Part of JSDEVBRAINS Digital Private Limited</div>
       </div>
-      <aside class="card info-card">
-        <h3>JSDEVBRAINS Digital Private Limited</h3>
-        <div>📍 Kuala Lumpur / Selangor, Malaysia</div>
-        <div>✉️ admissions@jsdevbrains.com</div>
-        <div>☎️ +60‑XXX‑XXXX</div>
-        <div class="muted">Office hours: Mon–Sat, 10:00–18:00 (MYT)</div>
-        <hr style="border-color:rgba(255,255,255,.08)">
-        <div class="muted">Follow us</div>
-        <div style="display:flex;gap:10px"><a href="#">LinkedIn</a><a href="#">YouTube</a><a href="#">GitHub</a></div>
-      </aside>
-    </div>
-  </section>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-      <div>© <span id="year"></span> JSDEVBRAINS Digital Private Limited — JSQUARE</div>
-      <div class="muted">Privacy • Terms • Refund Policy</div>
+      <div class="small muted">© 2007 - <span id="year"></span> JSDEVBRAINS Digital Pvt Ltd • All rights reserved</div>
+
+      <div class="small muted">Follow us: [LinkedIn] [Twitter] [Facebook]</div>
     </div>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Simple form handler (demo only)
-    function handleSubmit(form){
-      const data = Object.fromEntries(new FormData(form).entries());
-      const el = document.getElementById('form-status');
-      el.textContent = 'Submitting…';
-      setTimeout(()=>{
-        el.textContent = 'Thank you! Your application has been received. We will email you next steps.';
-        form.reset();
-      }, 700);
+    function submitForm(e){
+      e.preventDefault();
+      // frontend-only demo. Replace with real AJAX in production.
+      document.getElementById('formResult').style.display = 'block';
+      setTimeout(()=>{ document.getElementById('formResult').style.display = 'none'; resetForm(); }, 3000);
+      return false;
     }
+    function resetForm(){
+      document.getElementById('contactForm').reset();
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
   </script>
 </body>
 </html>
