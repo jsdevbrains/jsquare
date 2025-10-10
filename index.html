@@ -1,417 +1,423 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JSQUARE — Internship · Project · Handshake Training</title>
-  <meta name="description" content="JSQUARE (JSDEVBRAINS) — Internship and project-based program for full-stack developers. Mentors & Project Team Leads, 10-member teams, GitHub, Jira, Agile, Design Patterns. Alumni placed in top companies and abroad." />
-  <style>
-    :root{
-      --primary:#0056D2;
-      --accent:#ff7a00;
-      --muted:#6b7280;
-      --bg:#f7fafc;
-      --card:#ffffff;
-      --maxw:1200px;
-      --radius:12px;
-      --glass: rgba(255,255,255,0.7);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue";
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#f7fbff,var(--bg));color:#0f172a;line-height:1.5}
-    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
-    header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e6eefc}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;gap:12px;align-items:center}
-    .symbol{width:48px;height:48px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    nav a{color:#0f172a;text-decoration:none;font-weight:600;font-size:15px}
-    .cta{background:var(--accent);color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700}
-    h1,h2,h3{color:var(--primary);margin:0}
-    p{margin:6px 0}
-    .muted{color:var(--muted)}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(9,30,66,0.05);border:1px solid #eef6ff}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(1,1fr)}
-    .grid-4{grid-template-columns:repeat(1,1fr)}
-    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-    .lead{font-size:18px;font-weight:600}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;border:1px solid #e6eefc;font-weight:700}
-    /* cards grid layout */
-    .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .companies{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .company{background:#fff;padding:8px 12px;border-radius:8px;border:1px solid #eef4ff;font-weight:700;font-size:13px}
-    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    form{display:grid;gap:10px}
-    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6eefc;font-size:14px}
-    .small{font-size:13px;color:var(--muted)}
-    footer{padding:20px 0;color:var(--muted);font-size:14px}
-    /* responsive */
-    @media(min-width:880px){
-      .hero{grid-template-columns:1fr 420px}
-      .grid-3{grid-template-columns:repeat(3,1fr)}
-      .grid-4{grid-template-columns:repeat(4,1fr)}
-    }
-    @media(max-width:880px){
-      nav ul{display:none}
-      .courses-grid{grid-template-columns:1fr}
-      .feature-grid{grid-template-columns:1fr 1fr}
-      .testimonials{grid-template-columns:1fr}
-      .reviews-grid{grid-template-columns:1fr}
-    }
-    .muted-2{color:#52607a}
-    .ksmall{font-size:12px;color:#7b8794}
-    .meta{font-size:13px;color:#334155}
-  </style>
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JSQUARE - Bridging Education and Industry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0047AB", // Deep Azure
+                        "accent": "#047857", // Emerald
+                        "primary-light": "#F0F5FF",
+                        "accent-light": "#ECFDF5",
+                        "text-primary": "#111827",
+                        "text-secondary": "#4B5563",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "border-light": "#E5E7EB"
+                    },
+                    fontFamily: {
+                        "display": ["Poppins", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.25rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <div class="symbol">JS</div>
-        <div>
-          <div style="font-weight:900">JSQUARE</div>
-          <div class="small">Part of JSDEVBRAINS Digital Private Limited</div>
-        </div>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#students">Students</a></li>
-          <li><a href="#alumni">Alumni</a></li>
-          <li><a href="#recruiters">Recruiters</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="cta" href="#contact">Enroll / Hire</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap">
-          <div style="flex:1">
-            <h1>Internship · Project · Handshake Training</h1>
-            <p class="lead muted-2">Not a course. A structured pathway to industry: interns work in 10-member project groups led by Project Team Leads and Mentors. Code is reviewed before every GitHub push; tasks are tracked in Jira; teams follow Agile and design patterns.</p>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="cta" href="#contact">Get Started</a>
-              <a style="padding:10px 14px;border-radius:12px;border:1px solid #e6eefc;text-decoration:none;font-weight:700" href="#alumni">See Alumni</a>
-              <div class="pill">Since 2007 • 5000+ alumni</div>
-            </div>
-          </div>
-
-          <div style="width:360px">
-            <div style="background:#f8fbff;padding:14px;border-radius:12px">
-              <div style="font-weight:800;font-size:18px;color:var(--primary)">Program Snapshot</div>
-              <div class="ksmall" style="margin-top:8px">10-member project groups • Mentors & Project Team Leads • Code review before push • GitHub & Jira • Agile sprints</div>
-              <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-                <div style="padding:8px 10px;border-radius:10px;background:#fff;border:1px solid #eef6ff;font-weight:800">Internship</div>
-                <div style="padding:8px 10px;border-radius:10px;background:#fff;border:1px solid #eef6ff;font-weight:800">Project</div>
-                <div style="padding:8px 10px;border-radius:10px;background:#fff;border:1px solid #eef6ff;font-weight:800">Handshake</div>
-              </div>
-            </div>
-
-            <div style="margin-top:12px" class="card">
-              <div style="font-weight:800">Quick Contact</div>
-              <div class="small muted" style="margin-top:8px">Recruiters & learners — write to us:</div>
-              <div style="margin-top:10px">
-                <a class="cta" href="mailto:contact@jsquare.com">contact@jsquare.com</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSES -->
-    <section id="courses" style="margin-top:26px">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <h2>Technology Tracks</h2>
-        <div class="small muted">Project-first, mentor-reviewed, industry-ready</div>
-      </div>
-
-      <div class="courses-grid" style="margin-top:14px">
-        <div class="card">
-          <h3>C# Full Stack — .NET & Modern Frontend</h3>
-          <div class="ksmall">.NET Core, Entity Framework, SQL Server, React/Angular, REST APIs — build enterprise apps and deploy to cloud.</div>
-        </div>
-
-        <div class="card">
-          <h3>Azure Full Stack — Cloud Native</h3>
-          <div class="ksmall">Azure Functions, App Services, Azure SQL/Cosmos DB, CI/CD, monitoring & cloud patterns — real cloud projects.</div>
-        </div>
-
-        <div class="card">
-          <h3>Python Full Stack — Django / Flask</h3>
-          <div class="ksmall">Python, Django/Flask, PostgreSQL, REST APIs, frontend integration — scalable backends & services.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process" style="margin-top:28px">
-      <h2>Internship & Project Process</h2>
-      <div class="card" style="margin-top:12px">
-        <div style="display:grid;gap:12px">
-          <div><strong>Team Structure:</strong> Groups of <strong>10 members</strong> per project, guided by a <strong>Project Team Lead</strong> and multiple <strong>Mentors</strong>.</div>
-          <div><strong>Code Review Culture:</strong> Every change undergoes peer & mentor review before it is pushed to GitHub — no exceptions.</div>
-          <div><strong>Tools & Workflow:</strong> Jira for task tracking, GitHub for version control, Agile sprints, daily standups, sprint demos & retrospectives.</div>
-          <div><strong>Handshake Training:</strong> Soft skills, discipline, professional communication, and teamwork built into every sprint to ensure a smooth transition to recruiters.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STUDENT EXPERIENCE -->
-    <section id="students" style="margin-top:28px">
-      <h2>Student Experience — IT Culture & Skills</h2>
-      <div class="card" style="margin-top:12px">
-        <div class="feature-grid">
-          <div>
-            <strong>GitHub</strong>
-            <div class="small muted">Branching strategy, PRs, code review workflow, protected branches and CI checks.</div>
-          </div>
-          <div>
-            <strong>Jira</strong>
-            <div class="small muted">Tickets, sprint boards, story points and release tracking.</div>
-          </div>
-          <div>
-            <strong>Agile</strong>
-            <div class="small muted">Scrums, sprint planning, demos and retrospectives — practiced weekly.</div>
-          </div>
-          <div>
-            <strong>Design Patterns & Architecture</strong>
-            <div class="small muted">SOLID principles, Repository pattern, layered architecture and testability.</div>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap">
-          <div style="flex:1" class="ksmall">
-            <h4 style="margin:0">From Beginner → Solution Designer</h4>
-            <p class="muted">Students learn data modeling, API design, caching, security basics, diagnostics and deployment practices — enabling them to design systems independently.</p>
-            <ul class="small muted">
-              <li>Database design & normalization</li>
-              <li>API contracts & documentation</li>
-              <li>CI/CD basics & environment management</li>
-            </ul>
-          </div>
-
-          <div style="width:320px" class="ksmall">
-            <h4 style="margin:0">Mentor-led Reviews</h4>
-            <p class="muted">Mentors review code and provide actionable feedback; approved tasks become portfolio items recruiters can view.</p>
-            <div style="margin-top:8px"><span class="pill">Portfolio-ready</span> <span style="margin-left:8px" class="ksmall muted">Approved work = deliverable item</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALUMNI & PLACEMENTS -->
-    <section id="alumni" style="margin-top:28px">
-      <h2>Alumni & Placements</h2>
-      <div class="card" style="margin-top:12px">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <div style="flex:1">
-            <p class="muted">Since 2007, over <strong>5000 alumni</strong> from JSQUARE have joined IT teams locally and abroad. Our graduates work across product companies, services firms and startups — many in international locations.</p>
-            <div style="margin-top:10px" class="ksmall">
-              <strong>Placement highlights:</strong>
-              <ul class="small muted">
-                <li>5000+ students trained</li>
-                <li>Consistent placements in top firms across India & abroad</li>
-                <li>Students hired into product & cloud teams with technical interviews backed by portfolios</li>
-              </ul>
-            </div>
-          </div>
-
-          <div style="width:420px">
-            <div class="ksmall">Alumni work at (examples):</div>
-            <div class="companies" style="margin-top:8px">
-              <div class="company">Microsoft</div>
-              <div class="company">Amazon</div>
-              <div class="company">Accenture</div>
-              <div class="company">TCS</div>
-              <div class="company">Wipro</div>
-              <div class="company">Infosys</div>
-              <div class="company">Cognizant</div>
-              <div class="company">HCL</div>
-              <div class="company">Capgemini</div>
-              <div class="company">Tech Mahindra</div>
-            </div>
-          </div>
-        </div>
-
-        <hr style="margin:14px 0;border:none;border-top:1px solid #eef6ff" />
-
-        <div>
-          <h4 style="margin:0">Recruiter Testimonials</h4>
-          <div class="testimonials" style="margin-top:12px">
-            <div class="card">
-              <div style="font-weight:800">“Hire-Ready Talent”</div>
-              <div class="small muted">“JSQUARE students joined our team and were productive in weeks — their portfolios matched what they delivered during interviews.” — <strong>Engineering Manager, Accenture</strong></div>
-            </div>
-            <div class="card">
-              <div style="font-weight:800">“Strong Work Ethic”</div>
-              <div class="small muted">“The internship-project model produced disciplined engineers familiar with GitHub & Jira — reduced our onboarding time significantly.” — <strong>Lead, Product Team, Microsoft</strong></div>
-            </div>
-            <div class="card">
-              <div style="font-weight:800">“Practical & Reliable”</div>
-              <div class="small muted">“We hired three graduates for cloud roles; their mentor-reviewed code quality impressed us.” — <strong>HR - Amazon India</strong></div>
-            </div>
-            <div class="card">
-              <div style="font-weight:800">“Global Ready”</div>
-              <div class="small muted">“Many alumni moved abroad into product teams; the program prepares them for international roles.” — <strong>Hiring Lead, Tech Mahindra</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS (Placeholders) -->
-    <section id="reviews" style="margin-top:28px">
-      <h2>Reviews & Student Testimonials</h2>
-      <div class="reviews-grid" style="margin-top:12px">
-        <div class="card">
-          <strong>Google Reviews (placeholder)</strong>
-          <div class="small muted" style="margin-top:8px">[Replace with Google Reviews widget]</div>
-          <p style="margin-top:10px;font-style:italic">“Hands-on projects and mentor reviews made me interview-ready.” — Student</p>
-        </div>
-
-        <div class="card">
-          <strong>Justdial Reviews (placeholder)</strong>
-          <div class="small muted" style="margin-top:8px">[Replace with Justdial Reviews widget]</div>
-          <p style="margin-top:10px;font-style:italic">“The team setup simulated a real company — great learning.” — Student</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- RECRUITERS -->
-    <section id="recruiters" style="margin-top:28px">
-      <h2>Recruiters — Connect with JSQUARE Talent</h2>
-      <div class="card" style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
-        <div style="flex:1">
-          <p class="muted">Our graduates know the workflows you expect: GitHub PRs, Jira tickets, agile sprints, code review discipline, and documentation. They graduate with mentor-approved portfolio items and experience working in 10-member teams led by Project Team Leads.</p>
-
-          <ul class="small muted" style="margin-top:10px">
-            <li>Low onboarding time — engineers who already follow company workflows</li>
-            <li>Vetted portfolios — code reviewed & accepted by mentors</li>
-            <li>Available for on-site interviews, technical assignments, or direct hiring</li>
-          </ul>
-
-          <div style="margin-top:12px">
-            <a class="cta" href="#contact">Request Candidate Profiles</a>
-            <a style="margin-left:10px;padding:10px 14px;border-radius:12px;border:1px solid #e6eefc;text-decoration:none;font-weight:700" href="mailto:contact@jsquare.com?subject=Hire%20JSQUARE%20Talent">Email Recruitment</a>
-          </div>
-        </div>
-
-        <div style="width:320px">
-          <div style="font-weight:800;font-size:22px;color:var(--primary)">Trusted Talent</div>
-          <div class="small muted" style="margin-top:6px">Vetted, mentor-reviewed and ready to join your teams.</div>
-          <div style="margin-top:14px" class="card">
-            <strong>How recruiters work with us</strong>
-            <div class="ksmall muted" style="margin-top:8px">
-              1) Share role & requirements → 2) We shortlist candidate portfolios → 3) Interview / technical assessment → 4) Hire or engage in probation.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" style="margin-top:28px">
-      <h2>Contact & Enroll</h2>
-      <div class="card" style="margin-top:12px;display:grid;grid-template-columns:1fr 360px;gap:12px">
-        <div>
-          <form id="contactForm" onsubmit="return submitForm(event)">
-            <label><strong>Name</strong></label>
-            <input id="name" required placeholder="Full name" />
-
-            <label><strong>Email</strong></label>
-            <input id="email" type="email" required placeholder="you@domain.com" />
-
-            <label><strong>Phone</strong></label>
-            <input id="phone" placeholder="+91-XXXXXXXXXX" />
-
-            <label><strong>I am a</strong></label>
-            <select id="role">
-              <option>Student / Learner</option>
-              <option>Recruiter / Company</option>
-              <option>Other</option>
-            </select>
-
-            <label><strong>Interested Track / Message</strong></label>
-            <textarea id="message" rows="4" placeholder="Tell us what you're looking for..."></textarea>
-
-            <div style="display:flex;gap:10px;margin-top:8px">
-              <button type="submit" class="cta">Submit</button>
-              <button type="button" onclick="resetForm()" style="padding:10px 14px;border-radius:8px;border:1px solid #eef6ff;background:#fff;font-weight:700">Reset</button>
-            </div>
-
-            <div id="formResult" style="margin-top:10px;color:green;display:none">Thanks! We'll contact you soon.</div>
-            <div class="ksmall muted" style="margin-top:8px">Note: This demo is frontend-only. Connect to backend/email service for production.</div>
-          </form>
-        </div>
-
-        <div>
-          <div class="card">
-            <strong>Office</strong>
-            <div class="small muted" style="margin-top:8px">JSDEVBRAINS Digital Pvt Ltd (JSQUARE)</div>
-            <div class="small muted" style="margin-top:6px">Address: [Your Office Address]</div>
-            <div class="small muted" style="margin-top:6px">Phone: +91-XXXXXXXXXX</div>
-            <div class="small muted" style="margin-top:6px">Email: contact@jsquare.com</div>
-          </div>
-
-          <div class="card" style="margin-top:12px">
-            <strong>For Recruiters</strong>
-            <div class="small muted" style="margin-top:8px">Share job descriptions and we will share shortlists & mentor feedback on candidate readiness.</div>
-            <div style="margin-top:12px">
-              <a class="cta" href="mailto:contact@jsquare.com?subject=Recruitment%20Request">Email Recruitment</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer style="border-top:1px solid #eef6ff;margin-top:28px">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>
-        <div style="font-weight:900">JSQUARE</div>
-        <div class="small muted">Part of JSDEVBRAINS Digital Private Limited</div>
-      </div>
-
-      <div class="small muted">© 2007 - <span id="year"></span> JSDEVBRAINS Digital Pvt Ltd • All rights reserved</div>
-
-      <div class="small muted">Follow: [LinkedIn] [Twitter] [Facebook]</div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function submitForm(e){
-      e.preventDefault();
-      // Front-end demo feedback. Replace with real API call or email integration.
-      document.getElementById('formResult').style.display = 'block';
-      setTimeout(()=>{ document.getElementById('formResult').style.display = 'none'; resetForm(); }, 3000);
-      return false;
-    }
-    function resetForm(){ document.getElementById('contactForm').reset(); }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
-      });
-    });
-  </script>
-</body>
-</html>
+<body class="bg-background-light dark:bg-background-dark font-body text-text-primary">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="sticky-header flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-10 py-4">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-primary dark:text-background-light text-2xl font-display font-semibold leading-tight tracking-[-0.015em]">JSQUARE</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-8">
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#journey">Journey</a>
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#success">Success</a>
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#recruiters">Recruiters</a>
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#careers">Careers</a>
+<a class="text-text-primary dark:text-background-light text-base font-medium leading-normal hover:text-primary transition-colors" href="#faq">FAQ</a>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="py-20 px-10">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="flex flex-col gap-6 text-left">
+<h1 class="text-text-primary dark:text-background-light text-5xl font-display font-semibold leading-tight tracking-tight">
+                                Bridging the Gap Between Education and Industry
+                            </h1>
+<p class="text-text-secondary dark:text-gray-300 text-lg font-normal leading-relaxed">
+                                JSQUARE is your partner in building a future-proof career. We provide cutting-edge training and connect you with top companies.
+                            </p>
+<div class="flex gap-4 mt-4">
+<a class="flex min-w-[140px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20" href="#careers">
+<span class="truncate">Join My Team</span>
+</a>
+<a class="flex min-w-[140px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-accent-light text-accent text-lg font-bold leading-normal tracking-[0.015em] hover:bg-accent/20 transition-colors" href="#recruiters">
+<span class="truncate">Recruit My Students</span>
+</a>
+</div>
+</div>
+<div class="w-full h-[400px] bg-center bg-cover rounded-xl" data-alt="A professional studio-style image of a confident individual" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJTAZ4q183pcXt51HQNJ39Q8yKRhng4o_iGoFMRKdG0ILUQGVPi_onxiCZN519B2XGQjTgq0-Z6_M3NJk8bvXPzFTpfIKZuUJnxAUe-ei1TOH5CUCjBbdgmr_XUwGZYOk3Ix0t5gRU7STluhI0pvwhUMnSStxsJIMqv22XCk_nfo3Lox7RY8APFWCR2O8TXZcYtEkQlraQjnGdl-3P9AOQORR_LDflFdo87HQUQkuUdOkzuGqVHwiBbbxXeDsUkMotSsm-d0LgQGVs");'></div>
+</div>
+<div class="max-w-7xl mx-auto mt-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary-light dark:bg-gray-800">
+<p class="text-text-secondary dark:text-gray-400 text-base font-medium leading-normal">Placements Made</p>
+<p class="text-primary dark:text-background-light text-4xl font-bold leading-tight">1,200+</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary-light dark:bg-gray-800">
+<p class="text-text-secondary dark:text-gray-400 text-base font-medium leading-normal">Students Trained</p>
+<p class="text-primary dark:text-background-light text-4xl font-bold leading-tight">5,000+</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary-light dark:bg-gray-800">
+<p class="text-text-secondary dark:text-gray-400 text-base font-medium leading-normal">Partner Companies</p>
+<p class="text-primary dark:text-background-light text-4xl font-bold leading-tight">300+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10 bg-primary-light dark:bg-background-dark" id="about">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="w-full h-[400px] bg-center bg-cover rounded-xl" data-alt="A professional team photo in a modern office setting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcloaVigveiG6olp2qVKsx8LKaZHqr0Hye0bh26fSUqdk7aYrRyozp9dcnz3mY9DoeramTfxDMeqCvHox8mtVE6ECW7ppdUxIICMWs6MthN8pOqVhCnVO_I1sTdwlDk2LUO65QV0JLOSkm6M9DLhRQOFj2FBTRgL2pxyX_iOUHvDAmx6mUQTlwsYuteZn61Gn3s-QOJKDr2G6SzLIH7is2MFztjDiVFPxepkESzc23YazThUwaRh8xtvvvoFvjGnAehgz3mMq4j4KA");'></div>
+<div class="flex flex-col gap-6">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">About JSQUARE</h2>
+<p class="text-text-secondary dark:text-gray-300 text-lg leading-relaxed">
+                                JSQUARE, a subsidiary of JSDEVBRAINS DIGITAL Pvt. Ltd., is dedicated to empowering the next generation of tech professionals. Our mission is to provide industry-relevant education and foster a community of skilled and innovative thinkers. We aim to deliver high-quality training programs that equip students with the skills and knowledge needed to excel in the ever-evolving tech landscape.
+                            </p>
+</div>
+</div>
+</section>
+<section class="py-20 px-10" id="journey">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Our Journey</h2>
+<div class="w-full max-w-4xl">
+<div class="grid grid-cols-[auto_1fr] gap-x-8 gap-y-4 relative">
+<div class="absolute w-1 h-full bg-border-light dark:bg-gray-700 left-5 top-0 rounded-full"></div>
+<div class="flex flex-col items-center gap-2 pt-2 z-10">
+<div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">rocket_launch</span>
+</div>
+</div>
+<div class="flex flex-col pb-8">
+<p class="text-accent text-lg font-bold">2018</p>
+<p class="text-text-primary dark:text-background-light text-xl font-semibold">Inception</p>
+<p class="text-text-secondary dark:text-gray-300 mt-2 text-base">JSQUARE was founded with a vision to transform tech education.</p>
+</div>
+<div class="flex flex-col items-center gap-2 pt-2 z-10">
+<div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">emoji_events</span>
+</div>
+</div>
+<div class="flex flex-col pb-8">
+<p class="text-accent text-lg font-bold">2019</p>
+<p class="text-text-primary dark:text-background-light text-xl font-semibold">First 100 Placements</p>
+<p class="text-text-secondary dark:text-gray-300 mt-2 text-base">Achieved our first major milestone, placing 100 students in top companies.</p>
+</div>
+<div class="flex flex-col items-center gap-2 pt-2 z-10">
+<div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">school</span>
+</div>
+</div>
+<div class="flex flex-col pb-8">
+<p class="text-accent text-lg font-bold">2020</p>
+<p class="text-text-primary dark:text-background-light text-xl font-semibold">Expansion to New Courses</p>
+<p class="text-text-secondary dark:text-gray-300 mt-2 text-base">Introduced new courses in Data Science and AI to meet industry demand.</p>
+</div>
+<div class="flex flex-col items-center gap-2 pt-2 z-10">
+<div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">handshake</span>
+</div>
+</div>
+<div class="flex flex-col pb-8">
+<p class="text-accent text-lg font-bold">2021</p>
+<p class="text-text-primary dark:text-background-light text-xl font-semibold">Partnership with 100+ Companies</p>
+<p class="text-text-secondary dark:text-gray-300 mt-2 text-base">Forged partnerships with over 100 leading companies to enhance placement opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10 bg-primary-light dark:bg-background-dark" id="success">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Student Success Stories</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col items-center text-center">
+<img class="w-24 h-24 rounded-full mb-4 object-cover" data-alt="Photo of Priya Sharma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlaiQ49V497oAX7gQ_Z0HDIoBKMF3ohvcpMmogJ-7_LvWH6WFm_DipstSODf47BvydBj0dLM-0w3LX-oYjQJhn2KmXkeclf-2-V7Lv9lF4sBUqnLqCw0WOKRpEkr2IZdom5ZB2jjHjTZ3bf3vjZ1ClnWIpJYizjy8NaLRwBPzyJyCiVZJ1rLt1ZRaSEG9j-DF61soKvf2HVNPCzGcaGj9whGbuMnVpRQEIJIvD7idxzf0nEGIozpmlLF2PWY01G_pay6G2p308JxGF"/>
+<p class="text-xl font-semibold text-text-primary dark:text-background-light">Priya Sharma</p>
+<p class="text-sm text-accent font-medium">Software Engineer at Google</p>
+<p class="text-text-secondary dark:text-gray-300 mt-4 text-base leading-relaxed">"JSQUARE gave me the skills and confidence to land my dream job. The mentors were incredibly supportive throughout my journey."</p>
+</div>
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col items-center text-center">
+<img class="w-24 h-24 rounded-full mb-4 object-cover" data-alt="Photo of Rohan Verma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFhsAiI1vvy4Do1AmW6kg4HtJ5B5bwf_4Pj_lN7m7rYB3P1KUUZbMfdlNdUQzzDSffa3O3sVKVwzTgbtLDqpiwfwB9_-7JS2RTh9tZi9m34DKHkXkHq2xiiOHMZ_uQyy49XDq12mqThSuVHjL6kwbtLLQbUk4dn7IJNgYMps7plemaNp3aBqqD01v9NBfy-9xov1I2t0iYq8CgeaTls8Mk9bNTiwwkcFHkE_xTgvF6JXCUDfcgji8GLe99ifZUqtdSQgRCE47cHxTl"/>
+<p class="text-xl font-semibold text-text-primary dark:text-background-light">Rohan Verma</p>
+<p class="text-sm text-accent font-medium">Data Analyst at Amazon</p>
+<p class="text-text-secondary dark:text-gray-300 mt-4 text-base leading-relaxed">"The practical, hands-on approach at JSQUARE was a game-changer. I felt job-ready from day one."</p>
+</div>
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col items-center text-center">
+<img class="w-24 h-24 rounded-full mb-4 object-cover" data-alt="Photo of Anjali Mehta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm6QYFD2EFHps1wnZ8PDM8m1hFcnl0gys8YLlCV-_abvzAdPyMDSfjpqK-9h1El56bt6Ehw37KmY-h3ZEcKIeU4YzjaP5Pm0iol3mRrRSPTh6AAPZXawktbd78IGjEvlkhOWzbSGnUrLKS-DVdq9mENIpFM01FoNPFYNXEI8q-RRrvuqLAtSvfFeJvT5T1_YcHaA4V2rl-EIIg6DXDicF02KtIybgyprOSYS5FZgvFHykFmlXZuti8O0GCgNdgBvDMs2bVXmBqVha8"/>
+<p class="text-xl font-semibold text-text-primary dark:text-background-light">Anjali Mehta</p>
+<p class="text-sm text-accent font-medium">UX Designer at Microsoft</p>
+<p class="text-text-secondary dark:text-gray-300 mt-4 text-base leading-relaxed">"Thanks to JSQUARE's portfolio-building workshops, I was able to showcase my talent effectively and secure a position at a top tech company."</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Reviews &amp; Recognition</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="border border-border-light dark:border-gray-700 rounded-xl p-8">
+<div class="flex items-center mb-4">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</div>
+<p class="text-text-secondary dark:text-gray-300 mb-4 text-base leading-relaxed">"An outstanding program with a clear focus on industry needs. Highly recommended for aspiring tech professionals."</p>
+<p class="font-semibold text-text-primary dark:text-background-light text-base">- TechCrunch Review</p>
+</div>
+<div class="border border-border-light dark:border-gray-700 rounded-xl p-8">
+<div class="flex items-center mb-4">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+</div>
+<p class="text-text-secondary dark:text-gray-300 mb-4 text-base leading-relaxed">"JSQUARE delivers on its promise. The curriculum is relevant, the instructors are experts, and the placement support is top-notch."</p>
+<p class="font-semibold text-text-primary dark:text-background-light text-base">- John Doe, Parent</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10 bg-primary-light dark:bg-background-dark" id="recruiters">
+<div class="max-w-7xl mx-auto flex flex-col gap-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="flex flex-col gap-6">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Recruit Top Talent</h2>
+<p class="text-text-secondary dark:text-gray-300 text-lg leading-relaxed">We prepare top-tier talent ready to contribute from day one. Our rigorous training programs ensure that our graduates possess the skills and knowledge your company needs. Partner with us to find your next great hire.</p>
+</div>
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-8 shadow-xl">
+<h3 class="text-2xl font-semibold mb-6 text-text-primary dark:text-background-light">Get in Touch</h3>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-text-secondary dark:text-gray-300 mb-1" for="name-recruiter">Full Name</label>
+<input class="mt-1 block w-full rounded-lg border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm h-11 px-4" id="name-recruiter" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary dark:text-gray-300 mb-1" for="email-recruiter">Company Email</label>
+<input class="mt-1 block w-full rounded-lg border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm h-11 px-4" id="email-recruiter" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary dark:text-gray-300 mb-1" for="message-recruiter">Message</label>
+<textarea class="mt-1 block w-full rounded-lg border-border-light dark:border-gray-700 bg-background-light dark:bg-gray-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3" id="message-recruiter" rows="3"></textarea>
+</div>
+<button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-lg text-base font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">Submit</button>
+</form>
+</div>
+</div>
+<div class="mt-20">
+<h3 class="text-text-primary dark:text-background-light text-3xl font-display font-semibold text-center mb-12">Student Work Showcase</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col">
+<div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDr4xO5VKE3eGZPmZqwXQYCn8g8-tZQll8gS3dDBX5bL04N3syOr-MEBp1CVblO83sqIlqGsahj6ZAQwgVLirpXYhGUEUUE9V9dbIENbWFszuTz5WxUyN5dy2LY0HdX_sQC8QUrLaPe1FA39Z2Ok3hy0wSQzUJRA0iuthZb8Ckm-90AGJ2dWeJ40ljCdOkte8Y1e5fZApuVqmmJ7Uk0_9jr2x-qOkwNEc_-PGwPHSSJzb_1OoPueB18W1LLsVAdGmuB5VRATFl1ZDgL");'></div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">Project Alpha</h4>
+<p class="text-sm text-primary font-medium mb-2">Full Stack Development</p>
+<p class="text-text-secondary dark:text-gray-300 text-base leading-relaxed flex-grow">A comprehensive e-commerce platform built with the MERN stack, featuring real-time inventory tracking and a secure payment gateway.</p>
+<div class="mt-4">
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">React</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Node.js</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">MongoDB</span>
+</div>
+</div>
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col">
+<div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDr4xO5VKE3eGZPmZqwXQYCn8g8-tZQll8gS3dDBX5bL04N3syOr-MEBp1CVblO83sqIlqGsahj6ZAQwgVLirpXYhGUEUUE9V9dbIENbWFszuTz5WxUyN5dy2LY0HdX_sQC8QUrLaPe1FA39Z2Ok3hy0wSQzUJRA0iuthZb8Ckm-90AGJ2dWeJ40ljCdOkte8Y1e5fZApuVqmmJ7Uk0_9jr2x-qOkwNEc_-PGwPHSSJzb_1OoPueB18W1LLsVAdGmuB5VRATFl1ZDgL");'></div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">AI-Powered Chatbot</h4>
+<p class="text-sm text-primary font-medium mb-2">Data Science &amp; AI</p>
+<p class="text-text-secondary dark:text-gray-300 text-base leading-relaxed flex-grow">A customer service chatbot using natural language processing to understand and respond to user queries with high accuracy.</p>
+<div class="mt-4">
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Python</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">TensorFlow</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">NLTK</span>
+</div>
+</div>
+<div class="bg-background-light dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col">
+<div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDr4xO5VKE3eGZPmZqwXQYCn8g8-tZQll8gS3dDBX5bL04N3syOr-MEBp1CVblO83sqIlqGsahj6ZAQwgVLirpXYhGUEUUE9V9dbIENbWFszuTz5WxUyN5dy2LY0HdX_sQC8QUrLaPe1FA39Z2Ok3hy0wSQzUJRA0iuthZb8Ckm-90AGJ2dWeJ40ljCdOkte8Y1e5fZApuVqmmJ7Uk0_9jr2x-qOkwNEc_-PGwPHSSJzb_1OoPueB18W1LLsVAdGmuB5VRATFl1ZDgL");'></div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">Cloud Deployment Solution</h4>
+<p class="text-sm text-primary font-medium mb-2">Cloud Computing</p>
+<p class="text-text-secondary dark:text-gray-300 text-base leading-relaxed flex-grow">An automated CI/CD pipeline for deploying a microservices architecture on AWS, ensuring scalability and reliability.</p>
+<div class="mt-4">
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">AWS</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Docker</span>
+<span class="inline-block bg-primary-light text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">Jenkins</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10" id="careers">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Join Our Team</h2>
+<p class="text-text-secondary dark:text-gray-300 text-lg leading-relaxed max-w-3xl text-center">
+                    We are always looking for passionate and talented individuals to join our mission. If you are driven by a desire to make a difference in tech education, explore our open positions.
+                </p>
+<div class="w-full max-w-4xl bg-background-light dark:bg-gray-800 rounded-xl shadow-xl p-8">
+<div class="space-y-6">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-lg border border-border-light dark:border-gray-700 hover:shadow-lg transition-shadow">
+<div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">Senior Instructor - Full Stack</h4>
+<p class="text-text-secondary dark:text-gray-400">Bangalore, India • Full-time</p>
+</div>
+<a class="mt-4 md:mt-0 flex items-center justify-center min-w-[120px] h-11 px-6 bg-accent-light text-accent text-base font-bold rounded-full hover:bg-accent/20 transition-colors" href="#">
+<span>Apply Now</span>
+</a>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-lg border border-border-light dark:border-gray-700 hover:shadow-lg transition-shadow">
+<div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">Admissions Counselor</h4>
+<p class="text-text-secondary dark:text-gray-400">Remote • Part-time</p>
+</div>
+<a class="mt-4 md:mt-0 flex items-center justify-center min-w-[120px] h-11 px-6 bg-accent-light text-accent text-base font-bold rounded-full hover:bg-accent/20 transition-colors" href="#">
+<span>Apply Now</span>
+</a>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-lg border border-border-light dark:border-gray-700 hover:shadow-lg transition-shadow">
+<div>
+<h4 class="text-xl font-semibold text-text-primary dark:text-background-light">Marketing Manager</h4>
+<p class="text-text-secondary dark:text-gray-400">Bangalore, India • Full-time</p>
+</div>
+<a class="mt-4 md:mt-0 flex items-center justify-center min-w-[120px] h-11 px-6 bg-accent-light text-accent text-base font-bold rounded-full hover:bg-accent/20 transition-colors" href="#">
+<span>Apply Now</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-10 bg-primary-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Our Graduates Work At</h2>
+<div class="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-12 items-center">
+<img class="h-10 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="Google logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBya7-BUPH4WYdJugKs7VuQO4LogBN7AyAPsdVmgVMWvVsYDulL-UOay-Oo8U0sEgh8HYyOXotYkQBxA-ek4C1uX6ErKHI0le59mH2UNOvrUp0wrX_4aJornCacRmVq-LQKLmqi7ni1crtdYR6MPdBi2-BzUdhYzMsvqiqRY-N4VhRubRZeNVMfPSxbfwYHgIHnY3OikNPcKNF-UUKjCGrT88TWKKb7TeTHpmH54cwReAmkzuG6xAxUq85CPhTw4fE8wE_3oXbmpEcT"/>
+<img class="h-10 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="Amazon logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaZ7XMRd5mhf56W5FufXAnx6BcGMzPVFSMvM5wfPPUJIppns51DwwLyjUUmMcud8zChhSbnmEQcbe0XzuFWVc1ZeUnImzLYyEINoAjrG_xt7LgPv44PicO6PJWVun8ruNhr_xNf-tTI0zBwyLeiF2SISr1ukVkwhelh4tn3bHx2Gnc2jtOe46yMsxwulcwFqrgjx96Z9GXs9p1Uq26wYNtK9Qlbp6GlJvQSIr1BUIHnWihZjkk5orsPVa481UdF0cK_qlRMzQmG0ey"/>
+<img class="h-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="Microsoft logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBalGNEMtHIuNpFz7yim-5y6JtD1X6tjIdfSwtVmY6E6Z8AK8kSzGWXaM2c47xhXO21hvBSpvYWKsDYtzaApo3TUJIQfAJIDHiP3LZ29VvHvlzaFYQSW_6nNYV4sJyLvqpCbUHCfOv1wlcrt_Sk7kq7OwGEp0JXdifMTI7DtYXW0kU_053i5a4BUen9OoeUG2ybF7RKDBg6irYw9s3YF1jPKIy9SzPn8yLdBR4_0HMPoqg1mXv48CzesG9Hkj8zIC_gwuTEPsINHB7q"/>
+<img class="h-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="Accenture logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACsDIXDDkxjWUywz_c0HqHIo1oUZGSSoy5UzbNVeq-rB9kasb-TYdB-LjHBLfx709NwVL08pNpNQnaD6rPO6H0jz8tou4-vfRj1WI7zfU1n7Hzsu03cvu8EdC5pou7BvujAT6AqPdAzp0m7g804dLgYsDS_ZAAqOnK_pxX67uewUnM0sRs64IosRbldQqyeih2XQcvq5SAA1whF0nLk-ZsAuLnzf19GsTRpzIuwM1lH-hBmRuOf9wp7XVc8YtIL2p1zJ-pKYJGDYPb"/>
+<img class="h-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="Infosys logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU45-ej0UncqQL-vxW_hoPHjnyYteygimtsxJSIjRG_8M7VM9Paa6ZGJNDijlnQRdNOJC-uoYP1c_yc8s4SlcBy4sjYkL5mq3ZVOsH63YDKQkE-9fVbEaRiSGDrd5h3TC55hwLRSDO2d0-P30vrCpL29-v1VmC2w45Lx_gYXmF1tJZbHIgvQUq21mhhttqyI9Xk4hmW7lkUEuQ7fdaCffG9guZ3oXxV0xM4PpmX38G9MuZsvWR55yW_zNfIDNlVzKpGyW0SJcSKt7Q"/>
+<img class="h-10 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" data-alt="TCS logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_oe1PkpY3ZxajRD-yUxjQUUPGe2tIaW7zEsWoTc4F844QoIo8ynVYskavolf-pvyACRe8UsLHpr-tmUel-clN1z545eLjjmXKkc9Fq4cehVDG-QydtzZfQCyvKl0aMgfY0qPUEiZKfIbAIvf6gPKci1GHcfXF5KxqkpmKkzNQ1q8Y7d4eIKcaA9PiO8l9mbq_P_KFYCKG4PuDVK25zgyqd7hHS1LglopDt_2mg2_w3mWHRq2lMLaIBs_pJBGl_9zs7bUoWgjPeGWg"/>
+</div>
+</div>
+</section>
+<section class="py-20 px-10" id="faq">
+<div class="max-w-4xl mx-auto flex flex-col items-center gap-16">
+<h2 class="text-text-primary dark:text-background-light text-4xl font-display font-semibold">Frequently Asked Questions</h2>
+<div class="w-full space-y-4">
+<details class="group bg-background-light dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-semibold text-lg text-text-primary dark:text-background-light">What are the eligibility criteria for the programs?</span>
+<span class="text-primary transform transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-text-secondary dark:text-gray-300 text-base leading-relaxed">Our programs are open to final year students and recent graduates from any engineering or computer science background. A basic understanding of programming is recommended but not mandatory for all courses.</p>
+</details>
+<details class="group bg-background-light dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-semibold text-lg text-text-primary dark:text-background-light">Is there a placement guarantee?</span>
+<span class="text-primary transform transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-text-secondary dark:text-gray-300 text-base leading-relaxed">We provide comprehensive placement assistance, including resume building, mock interviews, and access to our network of partner companies. While we have a high placement rate, we do not offer a 100% guarantee as it depends on individual performance and market conditions.</p>
+</details>
+<details class="group bg-background-light dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-semibold text-lg text-text-primary dark:text-background-light">What is the duration of the training programs?</span>
+<span class="text-primary transform transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-text-secondary dark:text-gray-300 text-base leading-relaxed">Our programs typically range from 3 to 6 months, depending on the course and specialization. They are designed to be intensive and immersive to get you job-ready in the shortest possible time.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white">
+<div class="max-w-7xl mx-auto py-16 px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<div>
+<h3 class="text-xl font-display font-semibold mb-4">JSQUARE</h3>
+<p class="text-gray-400 text-sm">A subsidiary of JSDEVBRAINS DIGITAL Pvt. Ltd.</p>
+<p class="text-gray-400 mt-2 text-sm">123 Tech Park, Bangalore, India</p>
+<p class="text-gray-400 text-sm">contact@jsquare.com</p>
+<p class="text-gray-400 text-sm">+91 12345 67890</p>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#about">About Us</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#journey">Our Journey</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#success">Success Stories</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#careers">Careers</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#faq">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Programs</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#">Full Stack Development</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#">Data Science &amp; AI</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#">Cloud Computing</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors text-sm" href="#">Cyber Security</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.019c0 4.438 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.019C22 6.477 17.523 2 12 2z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+<p>© 2024 JSQUARE. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
