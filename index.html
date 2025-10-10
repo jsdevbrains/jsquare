@@ -1,49 +1,142 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JSQUARE - Bridging Education and Industry</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0047AB", // Deep Azure
-                        "accent": "#047857", // Emerald
-                        "primary-light": "#F0F5FF",
-                        "accent-light": "#ECFDF5",
-                        "text-primary": "#111827",
-                        "text-secondary": "#4B5563",
-                        "background-light": "#FFFFFF",
-                        "background-dark": "#121212",
-                        "border-light": "#E5E7EB"
-                    },
-                    fontFamily: {
-                        "display": ["Poppins", "sans-serif"],
-                        "body": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
-                        "lg": "1.25rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                },
-            },
+<html lang="en" class="light">
+<head>
+  <!-- Basic Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#0047AB" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO -->
+  <title>JSQUARE - Bridging Education and Industry | Best IT Training in .NET, Azure & Python (Coimbatore)</title>
+  <meta name="description" content="JSQUARE, established in 2007 in Coimbatore, delivers top-quality, real-time IT training in .NET, Azure, and Python. Over 5,000+ students trained and placed in leading global companies. Enroll now and future-proof your tech career!" />
+  <meta name="keywords" content=".NET training Coimbatore, Azure training, Python training, Software Training Institute, JSQUARE, IT placement, Coding school, JSDEVBRAINS, Full Stack, AI & Cloud courses, Career in Tech, Job-oriented training" />
+  <meta name="author" content="JSDEVBRAINS DIGITAL Pvt. Ltd." />
+  <link rel="canonical" href="https://jsquaretrainings.com/" />
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="JSQUARE Trainings" />
+  <meta property="og:title" content="JSQUARE - Quality IT Training in .NET, Azure & Python | Coimbatore" />
+  <meta property="og:description" content="Join JSQUARE – Real-world training & 5000+ successful placements. Learn .NET, Azure, and Python with hands-on mentoring." />
+  <meta property="og:url" content="https://jsquaretrainings.com/" />
+  <meta property="og:image" content="https://jsquaretrainings.com/assets/jsquare-banner.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@jsquaretrainings" />
+  <meta name="twitter:title" content="JSQUARE - Learn. Grow. Achieve. | Coimbatore's Leading IT Training" />
+  <meta name="twitter:description" content="Transform your career with JSQUARE’s .NET, Azure, and Python training. 5000+ alumni placed globally!" />
+  <meta name="twitter:image" content="https://jsquaretrainings.com/assets/jsquare-banner.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <!-- Fonts & Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Structured Data: Organization + Courses + LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "JSQUARE",
+        "alternateName": "JSDEVBRAINS DIGITAL Pvt. Ltd.",
+        "url": "https://jsquaretrainings.com",
+        "logo": "https://jsquaretrainings.com/assets/logo.png",
+        "foundingDate": "2007",
+        "description": "JSQUARE in Coimbatore offers real-time IT training in .NET, Azure, and Python with 5000+ successful placements.",
+        "founder": { "@type": "Person", "name": "JSQUARE Founder" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Coimbatore, Tamil Nadu",
+          "addressLocality": "Coimbatore",
+          "addressRegion": "TN",
+          "postalCode": "641001",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-9999999999",
+          "contactType": "customer service",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/jsquaretrainings",
+          "https://www.facebook.com/jsquaretrainings",
+          "https://www.instagram.com/jsquaretrainings",
+          "https://www.justdial.com/Coimbatore/JSQUARE"
+        ]
+      },
+      {
+        "@type": "Course",
+        "name": ".NET Full Stack Development",
+        "provider": { "@type": "Organization", "name": "JSQUARE", "sameAs": "https://jsquaretrainings.com" },
+        "description": "Hands-on training in .NET Core, C#, MVC, and modern web development frameworks."
+      },
+      {
+        "@type": "Course",
+        "name": "Microsoft Azure Cloud Training",
+        "provider": { "@type": "Organization", "name": "JSQUARE", "sameAs": "https://jsquaretrainings.com" },
+        "description": "Master Azure services, DevOps, and cloud architecture with real-time deployment projects."
+      },
+      {
+        "@type": "Course",
+        "name": "Python & Data Science Program",
+        "provider": { "@type": "Organization", "name": "JSQUARE", "sameAs": "https://jsquaretrainings.com" },
+        "description": "Learn Python from basics to advanced, with data analysis, ML, and AI applications."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0047AB",
+            accent: "#047857",
+            "primary-light": "#F0F5FF",
+            "accent-light": "#ECFDF5",
+            "text-primary": "#111827",
+            "text-secondary": "#4B5563",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "border-light": "#E5E7EB"
+          },
+          fontFamily: {
+            display: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "1.25rem",
+            xl: "1.5rem",
+            full: "9999px"
+          }
         }
-    </script>
-<style>
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Performance & Accessibility -->
+  <style>
+    .sticky-header { position: sticky; top: 0; z-index: 50; }
+    [data-alt]:after { content: attr(data-alt); display: none; }
+  </style>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-body text-text-primary">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
