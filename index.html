@@ -1,98 +1,139 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JSQUARE - Bridging Education and Industry</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0A0A1F", // Deep Space Blue
-                        "accent": "#00E5FF", // Neon Cyan
-                        "primary-light": "#1A1A3D",
-                        "accent-light": "rgba(0, 229, 255, 0.1)",
-                        "text-primary": "#FFFFFF", // Light Gray -> Changed to White for higher contrast
-                        "text-secondary": "#B0B0D0", // Medium Gray -> Changed to a lighter blue-gray
-                        "background-light": "#050510",
-                        "background-dark": "#050510",
-                        "border-light": "#2A2A4A"
-                    },
-                    fontFamily: {
-                        "display": ["Poppins", "sans-serif"],
-                        "body": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.75rem",
-                        "lg": "1rem",
-                        "xl": "1.25rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-        [x-cloak] { display: none !important; }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s ease-out forwards;
-        }
-        section {
-            opacity: 0;
-            transition: opacity 1s;
-        }
-        section.visible {
-            opacity: 1;
-        }
-        .carousel-container {
-            overflow: hidden;
-            position: relative;
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        .glow-button {
-            box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color);
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
-        }
-        .ai-gradient-bg {
-            background: radial-gradient(ellipse at bottom, #0A0A1F 0%, #050510 100%);
-        }
-        .ai-gradient-text {
-            background: linear-gradient(90deg, #00E5FF, #B388FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>JSQUARE - Bridging Education and Industry | IT & Cloud Training in Coimbatore</title>
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="JSQUARE, founded in 2007 in Coimbatore, provides real-time quality training in .NET, Azure, and Python. Over 5000+ students placed in top companies. Join JSQUARE and become part of the lifelong JS Family." />
+  <meta name="keywords" content="JSQUARE, JSDEVBRAINS, JSquare Training, Coimbatore Training, .NET training, Azure training, Python training, IT courses, software training institute, placement, career development, real-time training, corporate trainer" />
+  <meta name="author" content="JSDEVBRAINS DIGITAL Pvt. Ltd." />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="en" />
+  <meta name="geo.region" content="IN-TN" />
+  <meta name="geo.placename" content="Coimbatore" />
+  <meta name="geo.position" content="11.0168;76.9558" />
+  <meta name="ICBM" content="11.0168, 76.9558" />
+
+  <!-- ✅ Open Graph / Facebook -->
+  <meta property="og:title" content="JSQUARE - Bridging Education and Industry" />
+  <meta property="og:description" content="Transform your career with real-time IT training from JSQUARE. Over 5000 students trained and placed in top MNCs." />
+  <meta property="og:image" content="https://jssuthahar.github.io/malaysialivingcost/assets/jsquare-banner.jpg" />
+  <meta property="og:url" content="https://jsquaretrainings.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JSQUARE - Learn. Grow. Achieve." />
+  <meta name="twitter:description" content="JSQUARE, Coimbatore’s trusted IT training institute for .NET, Azure, and Python — Join our 5000+ successful alumni." />
+  <meta name="twitter:image" content="https://jssuthahar.github.io/malaysialivingcost/assets/jsquare-banner.jpg" />
+
+  <!-- ✅ Canonical -->
+  <link rel="canonical" href="https://jsquaretrainings.com" />
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="https://jssuthahar.github.io/malaysialivingcost/assets/jsquare-favicon.png" type="image/png" />
+
+  <!-- ✅ Structured Data (Schema.org JSON-LD for Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "JSQUARE",
+    "alternateName": "JSDEVBRAINS DIGITAL Pvt. Ltd.",
+    "url": "https://jsquaretrainings.com",
+    "logo": "https://jssuthahar.github.io/malaysialivingcost/assets/jsquare-favicon.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/jsquaretrainings",
+      "https://www.justdial.com/Coimbatore/JSQUARE",
+      "https://www.facebook.com/jsquaretrainings",
+      "https://twitter.com/jsquaretrainings"
+    ],
+    "founder": "Suthahar J",
+    "foundingDate": "2007",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641002",
+      "addressCountry": "IN"
+    },
+    "description": "JSQUARE provides real-time, quality-driven training in .NET, Azure, and Python, empowering students with job-ready skills and placements in top companies.",
+    "numberOfEmployees": "10+",
+    "areaServed": "Global",
+    "knowsAbout": [".NET", "Azure", "Python", "AI", "Cloud", "Software Development"]
+  }
+  </script>
+
+  <!-- ✅ Tailwind & Scripts -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- ✅ Tailwind Theme Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0A0A1F",
+            "accent": "#00E5FF",
+            "primary-light": "#1A1A3D",
+            "accent-light": "rgba(0, 229, 255, 0.1)",
+            "text-primary": "#FFFFFF",
+            "text-secondary": "#B0B0D0",
+            "background-light": "#050510",
+            "background-dark": "#050510",
+            "border-light": "#2A2A4A"
+          },
+          fontFamily: {
+            "display": ["Poppins", "sans-serif"],
+            "body": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.25rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- ✅ Custom Animations and Layout -->
+  <style>
+    .sticky-header { position: sticky; top: 0; z-index: 50; }
+    [x-cloak] { display: none !important; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    .slide-up { animation: slideUp 0.8s ease-out forwards; }
+    section { opacity: 0; transition: opacity 1s; }
+    section.visible { opacity: 1; }
+    .carousel-container { overflow: hidden; position: relative; }
+    .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+    .carousel-slide { min-width: 100%; box-sizing: border-box; }
+    .glow-button {
+      box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color);
+    }
+    .glow-button:hover {
+      box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+    }
+    .ai-gradient-bg {
+      background: radial-gradient(ellipse at bottom, #0A0A1F 0%, #050510 100%);
+    }
+    .ai-gradient-text {
+      background: linear-gradient(90deg, #00E5FF, #B388FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
+
 <body class="bg-background-dark font-body text-text-primary" x-data="{
         observe() {
             let observer = new IntersectionObserver((entries) =&gt; {
