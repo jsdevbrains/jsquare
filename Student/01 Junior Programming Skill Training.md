@@ -110,10 +110,10 @@ After 12 months, students will:
 
 ### 👨‍🏫 **Program Instructor**
 
-**Trainer:** Microsoft Certified Trainer
-**Program:** Junior Programming Skill Training
-**Organization:** JSDEVBRAINS DIGITAL PRIVATE LIMITED
-**Focus Areas:** Visual Studio • Programming • Logic Building • Project-Based Learning
+**Trainer:** Microsoft Certified Trainer.
+**Program:** Junior Programming Skill Training.
+**Organization:** JSDEVBRAINS DIGITAL PRIVATE LIMITED.
+**Focus Areas:** Visual Studio • Programming • Logic Building • Project-Based Learning.
 **Mission:** To empower young learners with logical and programming skills that prepare them for the digital future.
 
 ## 💬 **A Message to Parents**
