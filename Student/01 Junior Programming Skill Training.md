@@ -166,7 +166,7 @@ After 12 months, students will:
 ## 💬 **A Message to Parents**
 
 > “At JSQUARE Learning, we believe every child has the potential to become a creative problem solver.
-> Our goal is not just to teach coding — but to nurture confidence, curiosity, and imagination.”
->If you have any questions, feel free to contact us at contact@jsdevbrains.com
+> Our goal is not just to teach coding — but to nurture confidence, curiosity, and imagination.
+>If you have any questions, feel free to contact us at contact@jsdevbrains.com"
 
 ---
