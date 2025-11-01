@@ -56,52 +56,6 @@ Certificates will be awarded with remarks such as:
 
 This motivates children to not just complete lessons — but to **learn actively, think deeply, and enjoy programming**.
 
-Excellent 👍 — since this README will be shared with **parents**, I’ll make it more **friendly, clear, and engaging**, while keeping your brand (JSQUARE Learning Program – part of JSDEVBRAINS DIGITAL PRIVATE LIMITED).
-
-Below is your **final parent-friendly README** version — ready to share or print as a PDF.
-
----
-
-# 💻 Welcome to **JSQUARE Learning Program**
-
-### 🎓 Junior Programming Skill Training
-
-*(Part of JSDEVBRAINS DIGITAL PRIVATE LIMITED)*
-
-Dear Parents,
-
-Welcome to the **JSQUARE Learning Program**, proudly powered by **JSDEVBRAINS DIGITAL PRIVATE LIMITED**.
-This program is specially designed to help children develop **strong programming and logical thinking skills** step-by-step — in a **fun, engaging, and structured** way.
-
-Your child will go through a **12-month coding journey**, receiving colorful milestone certificates every two months to celebrate their growth and achievements. 🌈
-
----
-
-## 🗓️ **Program Overview**
-
-| **Duration** | **Milestones**           | **Certificate**          | **Goal**                                      |
-| ------------ | ------------------------ | ------------------------ | --------------------------------------------- |
-| 12 Months    | 6 Levels (2 Months Each) | Color-Coded Certificates | Build real programming skills with confidence |
-
-Each stage includes **interactive coding lessons, practice activities, and a mini-project** — all guided by experienced trainers.
-
----
-
-## 🌈 **Learning Stages & Certificate Colors**
-
-Every two months, your child will complete one learning stage and receive a certificate with a special **color code** representing their achievement level.
-
-| Stage             | Duration    | Color             | Achievement Title     | Focus Area                                       |
-| ----------------- | ----------- | ----------------- | --------------------- | ------------------------------------------------ |
-| 1️⃣ **Beginner**  | Month 1–2   | 🟦 Sky Blue       | *Foundation Achiever* | Learn computer basics and first coding steps     |
-| 2️⃣ **Explorer**  | Month 3–4   | 🟩 Leaf Green     | *Learning Explorer*   | Understand conditions, loops, and logic building |
-| 3️⃣ **Achiever**  | Month 5–6   | 🟨 Sun Yellow     | *Creative Performer*  | Practice functions, arrays, and small programs   |
-| 4️⃣ **Innovator** | Month 7–8   | 🟧 Vibrant Orange | *Skill Innovator*     | Learn object-oriented programming with examples  |
-| 5️⃣ **Champion**  | Month 9–10  | 🟥 Crimson Red    | *Pro Champion*        | Work with collections, files, and real-time code |
-| 6️⃣ **Master**    | Month 11–12 | 🟪 Royal Purple   | *Grand Master*        | Build and present a complete coding project      |
-
-Each color symbolizes your child’s progress and dedication — making learning more visual, exciting, and motivating.
-
 ---
 
 ## 🏅 **Certificate Details**
@@ -111,7 +65,6 @@ Each certificate proudly displays:
 * 👦 **Student’s Name**
 * 📘 **Stage Name & Duration**
 * 🎨 **Achievement Color & Level**
-* 🖊️ **Instructor Signature**
 * 📅 **Completion Date**
 * 🌈 **Progress Tracker** showing all 6 stages
 
